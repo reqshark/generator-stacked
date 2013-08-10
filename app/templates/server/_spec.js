@@ -1,7 +1,7 @@
 // SERVER SIDE TEST SUITE
 var request = require('superagent'),
 	expect = require('expect.js'),
-	app = require('../server.js');
+	app = require('../../server.js');
 
 
 // BEFORE HOOK

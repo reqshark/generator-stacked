@@ -7,8 +7,8 @@ var yeoman = require('yeoman-generator');
 var StackedGenerator = module.exports = function StackedGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    if(mocha){
+  this.on('end', function() {
+    if (this.mocha) {
       this.log.write('\n\n\nYou are almost ready to start building your app. First you have to initialize your build...\n\n');
       this.log.write('    > grunt init\n\n');
       this.log.write("Then install Mocha globally (if you haven't already)\n\n");
@@ -37,7 +37,7 @@ StackedGenerator.prototype.askFor = function askFor() {
   var prompts = [{
     type: 'confirm',
     name: 'confirmed',
-    message: 'Hello! Welcome to Stacked. Ready to create?' ,
+    message: 'Hello! Welcome to Stacked. Ready to create?',
     default: true
   }, {
     name: 'userName',
@@ -71,7 +71,7 @@ StackedGenerator.prototype.askFor = function askFor() {
     default: true
   }];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function(props) {
     this.confirmed = props.confirmed;
     this.userName = props.userName;
     this.github = props.github;
@@ -88,7 +88,7 @@ StackedGenerator.prototype.askFor = function askFor() {
 };
 
 StackedGenerator.prototype.app = function app() {
-  
+
   // Public Root
   this.mkdir('public');
 
@@ -104,6 +104,7 @@ StackedGenerator.prototype.app = function app() {
   // JS
   this.mkdir('public/js');
   this.mkdir('public/js/libs');
+  this.mkdir('public/js/libs/plugins');
   this.mkdir('public/js/tests');
   this.mkdir('public/js/tests/config');
   this.mkdir('public/js/tests/specs');
@@ -132,11 +133,12 @@ StackedGenerator.prototype.app = function app() {
   this.copy('_.bowerrc', '.bowerrc');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.copy('_.gitignore', '.gitignore');
-  this.copy('_LISCENSE-MIT', 'LICENSE-MIT');
+  this.copy('_LICENSE-MIT', 'LICENSE-MIT');
   this.copy('_README.md', 'README.md');
   this.copy('_travis.yml', '.travis.yml');
   this.copy('public/_index.html', 'public/index.html');
   this.copy('public/_SpecRunner.html', 'public/SpecRunner.html');
+  this.copy('public/_Backbone.validateAll.js', 'public/js/libs/plugins/Backbone.validateAll.js');
 
 };
 
@@ -147,10 +149,10 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('server/_config.js', 'server/config/config.js');
 
   // App
-  this.template('public/_Collection.js', 'public/js/app/collections/' + this.path + this.initName +'Collection.js');
-  this.template('public/_Model.js', 'public/js/app/models/' + this.path + this.initName +'Model.js');
-  this.template('public/_View.js', 'public/js/app/views/' + this.path + this.initName +'View.js');
-  this.template('public/_Template.html', 'public/js/app/templates/' + this.path + this.initName +'.html');
+  this.template('public/_Collection.js', 'public/js/app/collections/' + this.path + this.initName + 'Collection.js');
+  this.template('public/_Model.js', 'public/js/app/models/' + this.path + this.initName + 'Model.js');
+  this.template('public/_View.js', 'public/js/app/views/' + this.path + this.initName + 'View.js');
+  this.template('public/_Template.html', 'public/js/app/templates/' + this.path + this.initName + '.html');
   this.template('public/_Router.js', 'public/js/app/routers/Router.js');
   this.copy('public/_Init.js', 'public/js/app/config/Init.js');
 
@@ -164,13 +166,13 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
 
   // Images
   this.copy('public/_ajax-loader.gif', 'public/img/ajax-loader.gif');
-  this.copy('public/_favicon.ico', 'public/img/favicon.ico');
+  // this.copy('public/_favicon.ico', 'public/img/favicon.ico');
   this.copy('public/_jasmine-favicon.png', 'public/img/jasmine-favicon.png');
-  
+
 };
 
-StackedGenerator.prototype.less = function less() {
-  if(less){
+StackedGenerator.prototype.useLess = function useLess() {
+  if (this.less) {
     this.mkdir('public/css/includes/less');
     this.template('public/_custom.less', 'public/css/includes/less/custom.less');
   } else {
@@ -178,8 +180,8 @@ StackedGenerator.prototype.less = function less() {
   }
 };
 
-StackedGenerator.prototype.mocha = function mocha() {
-  if(mocha){
+StackedGenerator.prototype.useMocha = function useMocha() {
+  if (this.mocha) {
     this.mkdir('server/tests');
     this.mkdir('server/tests/specs');
     this.copy('server/_spec.js', 'server/tests/specs/spec.js');
@@ -190,11 +192,12 @@ StackedGenerator.prototype.getDependencies = function getDependencies() {
   var cb = this.async();
 
   this.installDependencies({
-      skipInstall: options['skip-install'],
-       callback: function(){
-        cb();
-    } 
+    bower: true,
+    npm: true,
+    skipInstall: false,
+    callback: function() {
+      cb();
+    }
   });
 
 };
-
