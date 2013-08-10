@@ -31,15 +31,17 @@ MvcGenerator.prototype.askFor = function askFor() {
 	this.prompt(prompts, function(props) {
 		this.initName = props.initName;
 		this.path = props.path;
-		this.path = this.path.replace(/\/?$/, '/');
+		if (this.path !== '' ) {
+			this.path = this.path.replace(/\/?$/, '/');
+		}
 
 		cb();
 	}.bind(this));
 };
 
 MvcGenerator.prototype.files = function files() {
-	this.template('public/_Collection.js', 'public/js/app/collections/' + this.path + this.initName + 'Collection.js');
-	this.template('public/_Model.js', 'public/js/app/models/' + this.path + this.initName + 'Model.js');
-	this.template('public/_View.js', 'public/js/app/views/' + this.path + this.initName + 'View.js');
-	this.template('public/_Template.html', 'public/js/app/templates/' + this.path + this.initName + '.html');
+	this.template('_Collection.js', 'public/js/app/collections/' + this.path + this.initName + 'Collection.js');
+	this.template('_Model.js', 'public/js/app/models/' + this.path + this.initName + 'Model.js');
+	this.template('_View.js', 'public/js/app/views/' + this.path + this.initName + 'View.js');
+	this.template('_Template.html', 'public/js/app/templates/' + this.path + this.initName + '.html');
 };

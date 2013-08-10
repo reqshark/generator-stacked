@@ -34,20 +34,22 @@ ModelGenerator.prototype.askFor = function askFor() {
 
 	this.prompt(prompts, function(props) {
 		this.initName = props.initName;
-		this.collection = props.colleciton;
+		this.collection = props.collection;
 		this.path = props.path;
-		this.path = this.path.replace(/\/?$/, '/');
+		if (this.path !== '' ) {
+			this.path = this.path.replace(/\/?$/, '/');
+		}
 
 		cb();
 	}.bind(this));
 };
 
-ModelGenerator.prototype.model = function model() {
-	this.template('_Model.js', 'public/js/app/models/' + this.path + initName + 'Model.js');
+ModelGenerator.prototype.placeModel = function placeModel() {
+	this.template('_Model.js', 'public/js/app/models/' + this.path + this.initName + 'Model.js');
 };
 
-ModelGenerator.prototype.collection = function collection() {
+ModelGenerator.prototype.placeCollection = function placeCollection() {
 	if (this.collection) {
-		this.template('_Collection.js', 'public/js/app/collections/' + this.path + initName + 'Collection.js');
+		this.template('_Collection.js', 'public/js/app/collections/' + this.path + this.initName + 'Collection.js');
 	}
 };

@@ -25,10 +25,9 @@ ViewGenerator.prototype.askFor = function askFor() {
 	}, {
 		name: 'path',
 		message: 'Where would you like to place your View? root -> public/js/app/views/',
-		default: ''
 	}, {
 		type: 'confirm',
-		name: 'template',
+		name: 'temp',
 		message: 'Would you like to initialize a Template with your View?',
 		default: true
 	}];
@@ -36,19 +35,20 @@ ViewGenerator.prototype.askFor = function askFor() {
 	this.prompt(prompts, function(props) {
 		this.initName = props.initName;
 		this.path = props.path;
-		this.template = props.template;
-		this.path = this.path.replace(/\/?$/, '/');
-
+		this.temp = props.temp;
+		if (this.path !== '' ) {
+			this.path = this.path.replace(/\/?$/, '/');
+		}
 		cb();
 	}.bind(this));
 };
 
-ViewGenerator.prototype.View = function View() {
-	this.template('_View.js', 'public/js/app/views/' + this.path + initName + 'View.js');
+ViewGenerator.prototype.placeView = function placeView() {
+	this.template('_View.js', 'public/js/app/views/' + this.path + this.initName + 'View.js');
 };
 
-ViewGenerator.prototype.template = function template() {
-	if (this.template) {
-		this.template('_Template.js', 'public/js/app/templates/' + this.path + initName + '.html');
+ViewGenerator.prototype.placeTemplate = function placeTemplate() {
+	if (this.temp) {
+		this.template('_Template.html', 'public/js/app/templates/' + this.path + this.initName + '.html');
 	}
 };
