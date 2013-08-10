@@ -1,2 +1,8 @@
-Every Thing 
------------
+TO DO 
+-----
+
+- Package.json
+
+- docs
+
+- github page

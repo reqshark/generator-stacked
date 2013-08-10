@@ -74,6 +74,8 @@ StackedGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (props) {
     this.confirmed = props.confirmed;
     this.userName = props.userName;
+    this.github = props.github;
+    this.projectName = props.projectName;
     this.initName = props.initName;
     this.path = props.path;
     this.less = props.less;
@@ -133,6 +135,8 @@ StackedGenerator.prototype.app = function app() {
   this.copy('_LISCENSE-MIT', 'LICENSE-MIT');
   this.copy('_README.md', 'README.md');
   this.copy('_travis.yml', '.travis.yml');
+  this.copy('public/_index.html', 'public/index.html');
+  this.copy('public/_SpecRunner.html', 'public/SpecRunner.html');
 
 };
 
@@ -148,16 +152,20 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
   this.template('public/_View.js', 'public/js/app/views/' + this.path + this.initName +'View.js');
   this.template('public/_Template.html', 'public/js/app/templates/' + this.path + this.initName +'.html');
   this.template('public/_Router.js', 'public/js/app/routers/Router.js');
-  this.template('public/_Init.js', 'public/js/app/config/Init.js');
+  this.copy('public/_Init.js', 'public/js/app/config/Init.js');
 
   // CSS
   this.copy('public/_app.css', 'public/css/app.css');
   this.copy('public/_jasmine.css', 'public/css/jasmine.css');
-  this.copy('public/_custom.css', 'public/css/includes/css/custom.css');
 
   // Tests
   this.copy('public/_TestInit.js', 'public/js/tests/config/TestInit.js');
   this.copy('public/_spec.js', 'public/js/tests/specs/spec.js');
+
+  // Images
+  this.copy('public/_ajax-loader.gif', 'public/img/ajax-loader.gif');
+  this.copy('public/_favicon.ico', 'public/img/favicon.ico');
+  this.copy('public/_jasmine-favicon.png', 'public/img/jasmine-favicon.png');
   
 };
 
@@ -165,6 +173,8 @@ StackedGenerator.prototype.less = function less() {
   if(less){
     this.mkdir('public/css/includes/less');
     this.template('public/_custom.less', 'public/css/includes/less/custom.less');
+  } else {
+    this.copy('public/_custom.css', 'public/css/includes/css/custom.css');
   }
 };
 
@@ -172,7 +182,7 @@ StackedGenerator.prototype.mocha = function mocha() {
   if(mocha){
     this.mkdir('server/tests');
     this.mkdir('server/tests/specs');
-    this.copy('server/tests/specs/spec.js');
+    this.copy('server/_spec.js', 'server/tests/specs/spec.js');
   }
 };
 
