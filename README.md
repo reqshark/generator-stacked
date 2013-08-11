@@ -6,7 +6,7 @@
 
 Website: [cl0udc0ntr0l.github.io/generator-stacked](http://cl0udc0ntr0l.github.io/generator-stacked)
 
-NPM: [npmjs.org/](https://npmjs.org/package/generator-stacked)
+NPM: [npmjs.org/package/generator-stacked](https://npmjs.org/package/generator-stacked)
 
 Repository: [github.com/cl0udc0ntr0l/generator-stacked](https://github.com/cl0udc0ntr0l/generator-stacked)
 
