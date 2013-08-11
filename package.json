@@ -1,7 +1,7 @@
 {
   "name": "generator-stacked",
-  "version": "0.0.0",
-  "description": "A Backbone.js Require.js test driven workflow built on Node.js, Yeoman, Grunt and Bower.",
+  "version": "0.0.1",
+  "description": "A Backbone.js Require.js test driven workflow.",
   "keywords": [
     "yeoman-generator",
     "Backbone.js",
@@ -11,6 +11,8 @@
     "bootstrap",
     "backbone require boilerplate",
     "backbone require workflow",
+    "test diven development",
+    "behavior driven development",
     "TDD",
     "BDD",
     "Grunt",
@@ -18,7 +20,7 @@
     "twitter",
     "workflow"
   ],
-  "homepage": "https://cl0udc0ntr0l.github.io/generator-stacked",
+  "homepage": "http://cl0udc0ntr0l.github.io/generator-stacked",
   "bugs": "https://github.com/cl0udc0ntr0l/generator-stacked/issues",
   "author": {
     "name": "Randy Lebeau",
