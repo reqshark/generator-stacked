@@ -37,9 +37,9 @@ Generate your app.
 	mkdir myApp && cd $_
 	yo stacked`
 
-<img align="right" width="50%" src="http://cl0udc0ntr0l.github.io/generator-stacked/img/questions.png" alt="Prompt">
-<img align="right" style="clear:both" width="50%" src="http://cl0udc0ntr0l.github.io/generator-stacked/img/after-app.png" alt="After Creation">
-<img align="right" style="clear:both" width="50%" src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/questions.png" alt="Prompt">
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/after-app.png" alt="After Creation">
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
 
 Stacked will ask you some questions to help you set up your app.
 
