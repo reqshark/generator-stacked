@@ -166,7 +166,7 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
 
   // Images
   this.copy('public/_ajax-loader.gif', 'public/img/ajax-loader.gif');
-  this.copy('public/_favicon.ico', 'public/img/favicon.ico');
+  this.copy('public/_favicon.ico', 'public/favicon.ico');
   this.copy('public/_jasmine-favicon.png', 'public/img/jasmine-favicon.png');
 
 };
