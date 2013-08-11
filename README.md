@@ -110,9 +110,9 @@ Finally, All your JS is run through jshint and r.js.  You can switch the product
 
 ### GRUNT TEST
 
-<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
-
 `grunt test` runs jslint and mocha tests
+
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
 
 ### GRUNT SERVER
 
