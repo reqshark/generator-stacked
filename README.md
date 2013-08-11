@@ -38,8 +38,6 @@ Generate your app.
 	yo stacked`
 
 <img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/questions.png" alt="Prompt">
-<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/after-app.png" alt="After Creation">
-<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
 
 Stacked will ask you some questions to help you set up your app.
 
@@ -72,6 +70,7 @@ If you want to use LESS, which you should (default is yes), you can just hit ent
 
 # INITIALIZE THE BUILD
 After you make your selections, your app will be generated and all dependencies will be installed. The console will log out how to initialize your build.
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/after-app.png" alt="After Creation">
 
 ### GRUNT INIT
 To initalize your build type `grunt init` A few things are happening here which are good to understand and leverage.
@@ -110,6 +109,8 @@ Finally, All your JS is run through jshint and r.js.  You can switch the product
 'grunt build' will lint your javascript and run r.js to compile you production build.
 
 ### GRUNT TEST
+
+<img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/grunt-tasks.png" alt="Grunt Tasks">
 
 `grunt test` runs jslint and mocha tests
 
