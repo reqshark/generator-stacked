@@ -329,6 +329,7 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 ## TODO
 - Automatate route creation and Require.js linking in existing router
 - Add database setup (Mongodb with Mongoose or Redis)
+- Live Reload
 
 ## LICENSE
 Copyright (c) 2013 Randy Lebeau  
