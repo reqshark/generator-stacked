@@ -4,13 +4,14 @@
   "version": "0.0.1",
   "homepage": "https://github.com/<%= github %>/<%= projectName %>",
   "author": {
-    "name": "Jon Gutwillig",
+    "name": "<%= userName %>",
     "url": "https://github.com/<%= github %>"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:<%= github %>/<%= projectName %>.git"
   },
+  "homepage": "https://<%= github %>.github.io/<%= projectName %>",
   "keywords": [
     "generator-thestack"
   ],
