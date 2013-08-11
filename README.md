@@ -333,8 +333,8 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 	
 ## CHANGE LOG
 
-`0.0.1` - Aug 11, 2013
-- initial commit
+`0.1.0` - Aug 11, 2013
+- first stable release
 
 
 ## TODO
