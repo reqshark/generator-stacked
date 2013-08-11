@@ -147,13 +147,39 @@
 <body>
   
     <header data-role="header">
-      <h1>The Stack</h1>
+
+      <div class="navbar navbar-fixed-top">
+        <div class="container">
+
+          <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- Be sure to leave the brand out there if you want it shown -->
+          <a class="navbar-brand" href="#"><%= projectName %></a>
+
+          <!-- Place everything within .nav-collapse to hide it until above 768px -->
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#install">Install</a></li>
+              <li><a href="#generate">Generate</a></li>
+              <li><a href="#initialize">Initialize</a></li>
+              <li><a href="#subgenerate">Subgenerate</a></li>
+              <li><a href="#learn">Learn</a></li>
+            </ul>
+          </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+      </div><!-- /.navbar -->
+
     </header> <!-- /header -->
 
     <div class="magic"></div>
 
     <footer class="footer navbar navbar-fixed-bottom" data-role="footer">
-        <p>Written by <a href="https://github.com/cl0udc0ntr0l" target="_blank">Randy Lebeau</a> based on <a href="https://github.com/gfranko/backbone-require-boilerplate" target="_blank">Backbone Require Boilerplate</a> by<a href="https://github.com/gfranko" target="_blank">Greg Franko</a></p>
+        <p style="text-align:center;margin-top:15px">Written by <a href="https://github.com/cl0udc0ntr0l" target="_blank">Randy Lebeau</a> based on <a href="https://github.com/gfranko/backbone-require-boilerplate" target="_blank">Backbone Require Boilerplate</a> by<a href="https://github.com/gfranko" target="_blank">Greg Franko</a></p>
     </footer><!-- /footer -->
 
 </body>

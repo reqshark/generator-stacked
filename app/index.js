@@ -136,7 +136,7 @@ StackedGenerator.prototype.app = function app() {
   this.copy('_LICENSE-MIT', 'LICENSE-MIT');
   this.copy('_README.md', 'README.md');
   this.copy('_travis.yml', '.travis.yml');
-  this.copy('public/_index.html', 'public/index.html');
+  this.template('public/_index.html', 'public/index.html');
   this.copy('public/_SpecRunner.html', 'public/SpecRunner.html');
   this.copy('public/_Backbone.validateAll.js', 'public/js/libs/plugins/Backbone.validateAll.js');
 
@@ -166,7 +166,7 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
 
   // Images
   this.copy('public/_ajax-loader.gif', 'public/img/ajax-loader.gif');
-  // this.copy('public/_favicon.ico', 'public/img/favicon.ico');
+  this.copy('public/_favicon.ico', 'public/img/favicon.ico');
   this.copy('public/_jasmine-favicon.png', 'public/img/jasmine-favicon.png');
 
 };
