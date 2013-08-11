@@ -1,5 +1,7 @@
-# STACKED (GENERATOR-STACKED)
-[cl0udc0ntr0l.github.io/generator-stacked](http://cl0udc0ntr0l.github.io/generator-stacked)
+![Banner](http://cl0udc0ntr0l.github.io/generator-stacked/img/banner-sm.png)
+<a style="float:right" href="http://cl0udc0ntr0l.github.io/generator-stacked">cl0udc0ntr0l.github.io/generator-stacked</a>
+
+<br>
 
 > A Backbone.js and Require.js Test Driven Workflow inspired by [Greg Franko](http://gregfranko.com/)'s [Backbone-Require-Boilerplate-Lite](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate-Lite). Together we promote decoupling your JavaScript into modules, separating business logic from application logic using Collections/Models and Views, including non-AMD Compatible Third Party Scripts in your project, optimizing all of your JavaScript (minify, concatenate, etc), and unit testing your JavaScript all while minimizing the time it takes to perform monotonous tasks.
 
