@@ -1,6 +1,6 @@
 // IndexView.js
 
-define(["jquery", "backbone", "models/<%= initName %>Model", "text!templates/<%= initName %>.html"],
+define(["jquery", "backbone", "models/<%= path %><%= initName %>Model", "text!templates/<%= path %><%= initName %>.html"],
 
     function($, Backbone, Model, template){
 

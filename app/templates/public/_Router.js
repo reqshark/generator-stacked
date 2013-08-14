@@ -1,6 +1,6 @@
 // Router.js
 
-define(["jquery", "backbone", "models/<%= initName %>Model", "views/<%= initName %>View", "collections/<%= initName %>Collection"],
+define(["jquery", "backbone", "models/<%= path %><%= initName %>Model", "views/<%= path %><%= initName %>View", "collections/<%= path %><%= initName %>Collection"],
 
     function($, Backbone, Model, View, Collection) {
 

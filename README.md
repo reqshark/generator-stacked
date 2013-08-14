@@ -334,7 +334,13 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 ## CHANGE LOG
 
 `0.1.0` - Aug 11, 2013
-- first stable release
+- First stable release
+
+`0.1.1` - Aug 12, 2013
+- Added support for initial build mvc set path selection
+
+`0.1.2` - Aug 14, 2013
+- Fixed path bug
 
 
 ## TODO
