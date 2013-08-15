@@ -31,7 +31,7 @@ MvcGenerator.prototype.askFor = function askFor() {
 	this.prompt(prompts, function(props) {
 		this.initName = props.initName;
 		this.path = props.path;
-		if (this.path !== '' ) {
+		if (this.path !== '') {
 			this.path = this.path.replace(/\/?$/, '/');
 		}
 

@@ -32,11 +32,11 @@ ModelGenerator.prototype.askFor = function askFor() {
 		default: true
 	}];
 
-	this.prompt(prompts, function(props) {
+	this.prompt(prompts, function (props) {
 		this.initName = props.initName;
 		this.collection = props.collection;
 		this.path = props.path;
-		if (this.path !== '' ) {
+		if (this.path !== '') {
 			this.path = this.path.replace(/\/?$/, '/');
 		}
 
