@@ -59,7 +59,7 @@ Your name is injected into package.json and bower.json as the author of the app.
 Your github username is used to create repository paths in package.json and bower.json
 
 ### APP NAME
-This is the name of your app.  It is complete repository paths and populate other files.  
+This is the name of your app.  It is complete repository paths and populate other files.
 
 > In the future I may use this varible to namespace the app.
 
@@ -87,7 +87,7 @@ After you make your selections, your app will be generated and all dependencies 
 To initalize your build type `grunt init` A few things are happening here which are good to understand and leverage.
 
 ######BOOTSTRAP
-The first thing the init task does is copy your bootstrap.css file from the bower install directory 
+The first thing the init task does is copy your bootstrap.css file from the bower install directory
 `public/js/libs/bootstrap/dist/css` to `public/css`
 
 > Leverage!
@@ -130,7 +130,7 @@ Finally, All your JS is run through jshint and r.js.  You can switch the product
 `grunt server` Starts up your express server and uses nodemon to listen for changes
 
 ## SUBGENERATORS
-Subgenerators create the components of your app that you use the most, Models, Collections, Views and Templates. There are three subgenerators that cover all bases. 
+Subgenerators create the components of your app that you use the most, Models, Collections, Views and Templates. There are three subgenerators that cover all bases.
 
 
 ### MODEL
@@ -149,10 +149,10 @@ The view generator creates a View and optionally, a Template. There is no templa
 `yo stacked:mvc`
 ![](http://cl0udc0ntr0l.github.io/generator-stacked/img/mvc-generator.png)
 
-The mvc generator creates a full set of backbone components, minus the Router.  You will have to include your new set in your existing Router manually (for now). 
+The mvc generator creates a full set of backbone components, minus the Router.  You will have to include your new set in your existing Router manually (for now).
 
 ## BACKBONE-REQUIRE-BOILERPLATE-LITE
-> Stacked App structures are based on [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate) by [Greg Franko](https://github.com/gfranko), [Nick Pack](https://github.com/nickpack) and [Brett Jones](https://github.com/brettjonesdev). 
+> Stacked App structures are based on [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate) by [Greg Franko](https://github.com/gfranko), [Nick Pack](https://github.com/nickpack) and [Brett Jones](https://github.com/brettjonesdev).
 
 I have made some enhancements to the server side.
 - Abstracted an API file: `server/API.js` file for REST calls.
@@ -225,9 +225,9 @@ Finally, a new router instance is instantiated to allow you to use Backbone's ro
 
 Router.js
 ---------------
-This file starts with a define method that lists jquery, backbone, and View.js as dependencies. 
+This file starts with a define method that lists jquery, backbone, and View.js as dependencies.
 
-It is best practice to list out all of your dependencies for every file, regardless of whether or not they expose global objects and are already included in the page.  This is also especially important for the Require.js optimizer (which needs to determine which files depend on which other files).  
+It is best practice to list out all of your dependencies for every file, regardless of whether or not they expose global objects and are already included in the page.  This is also especially important for the Require.js optimizer (which needs to determine which files depend on which other files).
 
 > If your dependencies do not expose global objects, then it is absolutely mandatory to list it as a dependency, since Require.js does not allow global variables (meaning your modules are private and cannot be accessed by other modules or code without explicitly listing them as dependencies).
 
@@ -244,7 +244,7 @@ View.js
 View.js starts with a define method that lists all of its dependencies.
 
 The rest of the file is a pretty standard Backbone.js View class:
-   
+
 Backbone.js View's have a one-to-one relationship with DOM elements, and a View's DOM element is listed in the `el` property.  After the `el` property is set, the View's model attribute is set to a new instance of the Model returned by Model.js (which was listed at the top as a dependency).  Next, the View's `render` method is called within the View's constructor, aka `initialize()` method, and the View's `template` property is set and appended to the page using the [Underscore.js](https://github.com/documentcloud/underscore) `template` method ported to Lodash.
 
 > If you have read all of the documentation up until this point, you will most likely have already noticed that [lodash](https://github.com/bestiejs/lodash) is being used instead of Underscore.js.  Apart from having a bit better cross-browser performance and stability than Underscore.js, lodash also provides a custom build process.  Although I have provided a version of lodash that has all of the Underscore.js methods you would expect, you can download a custom build and swap that in.  Also, it doesn't hurt that Lodash creator, [John-David Dalton](https://twitter.com/jdalton), is an absolute performance and API consistency maniac =)
@@ -330,7 +330,7 @@ The entire file is wrapped in an AMD define method, with all external module (fi
 
 ## DEMONSTRATIONS AND DOCUMENTATIONS
 If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate) in action, you can head over to [cl0udc0ntr0l.github.io/generator-stacked] To watch my screen cast showing the power of yeoman and Greg's screencast demonstrating [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate). I have also included quick links to the documentation for all the libraries included in Stacked.
-	
+
 ## CHANGE LOG
 
 `0.1.0` - Aug 11, 2013
@@ -340,8 +340,10 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 - Added support for initial build mvc set path selection
 
 `0.1.2` - Aug 14, 2013
-- Fixed path bug
+- Fixed path bug in subgenerators
 
+`0.1.2` - Aug 15, 2013
+- Fixed path bug in init files
 
 ## TODO
 - Automatate route creation and Require.js linking in existing router
@@ -349,6 +351,6 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 - Live Reload
 
 ## LICENSE
-Copyright (c) 2013 Randy Lebeau  
-Licensed under the [MIT license](https://github.com/cl0udc0ntr0l/generator-stacked/blob/master/LICENSE-MIT). 
+Copyright (c) 2013 Randy Lebeau
+Licensed under the [MIT license](https://github.com/cl0udc0ntr0l/generator-stacked/blob/master/LICENSE-MIT).
 
