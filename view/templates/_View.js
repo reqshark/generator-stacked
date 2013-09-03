@@ -1,8 +1,8 @@
 // IndexView.js
 
-define(["jquery", "backbone", "models/<%= path %><%= initName %>Model", "text!templates/<%= path %><%= initName %>.html"],
+define(["jquery", "backbone", "text!templates/<%= path %><%= initName %>.html"],
 
-    function($, Backbone, Model, template){
+    function($, Backbone, template){
 
         var <%= initName %>View = Backbone.View.extend({
 
