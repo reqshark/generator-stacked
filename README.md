@@ -342,8 +342,12 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 `0.1.2` - Aug 14, 2013
 - Fixed path bug in subgenerators
 
-`0.1.2` - Aug 15, 2013
+`0.1.3` - Aug 15, 2013
 - Fixed path bug in init files
+
+`0.1.4` - Sept 1, 2013
+- Updated Yeoman Deps
+- Removed Model Require from View Subgenerator
 
 ## TODO
 - Automatate route creation and Require.js linking in existing router
