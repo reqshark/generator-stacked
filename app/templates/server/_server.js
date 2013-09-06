@@ -18,7 +18,7 @@ mongoose.connect('mongodb://' + Config.database.IP + ':' +Config.database.port +
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB connection error:'));
 db.once('open', function callback () {
-  console.log('Connected to DB');
+  console.log('Connected to ' + Config.database.name;
 });
 
 // DATABASE SCHEMAS
@@ -59,4 +59,4 @@ API.api(server<% if(mongo){ %>, schema<% }%>);
 // Start Node.js Server
 http.createServer(server).listen(port);
 
-console.log('\n\nWelcome to The Stack!\n\nPlease go to http://localhost:' + port + ' to start using Require.js and Backbone.js\n\n');
+console.log('\n\nWelcome to Stacked!\n\nPlease go to http://localhost:' + port + ' to start using Require.js and Backbone.js\n\n');
