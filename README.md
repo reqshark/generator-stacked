@@ -14,6 +14,61 @@ Bugs: [github.com/cl0udc0ntr0l/generator-stacked/issues](https://github.com/cl0u
 
 <hr>
 
+## NEW FEATURES
+#### MongoDB and Mongoose
+The yo man now asks you if you want to use MongoDB and Mongoose in your app. He does all the configuration for you and even sets up a sample schema.  You just have to point the config file at your database and start coding!
+
+##### Example
+
+> You will have to install mongoDB if you dont have it installed already. [this is how you do it,](http://docs.mongodb.org/manual/installation/)
+
+> Once you are done with that you have to point your config file `server/config/config.js` at your mongoDB install.
+
+   exports.config = {
+      listenPort: "1337",
+      sessionSecret: "keyboard-cat", // You should change this while you are here
+      database: {
+         IP: "10.0.0.100",  // Put your mongoDB IP here (no http/ https)
+         name: "defaultDB" // Choose a name (the db will be created automatically)
+         port: "27017"    // 27017 is the default port.  Only change this if you specified a different port for your mongoDB install.
+      }
+   };
+
+> That's it! You can now create schemas and persist your data. A schema generator is coming soon.
+
+
+#### Event Aggregator
+When you create a new app, Stacked will create an event aggregator called Notifier that you can use to send messages across your entire app.  It observes the pub/sub pattern.  Meaning you can have multiple listeners for your event.
+
+##### Example:
+
+>Include Notifier with require.js
+
+   define(["jquery", "backbone", "events/Notifier"],
+
+    function($, Backbone, Notifier){ ...
+
+> Send the message
+
+   Notifier.trigger('myChanel.myMessage', [optional, params]);
+
+> Recieve the message somewhere else
+
+   Notifier.on('myChannel.myMessage', function(optional, params){
+      ...
+   });
+
+> Or even better! In your initialize method:
+
+   Notifier.on('myChannel.myMessage, this.myFunction, this);
+
+> and then add your own method
+
+   myFunction: function(optional, params) {
+      …
+   }, // Dont forget to chain your methods!
+
+
 ## THE WORKFLOW
 <img src="http://cl0udc0ntr0l.github.io/generator-stacked/img/toolset.png" width="100%">
 
@@ -21,20 +76,23 @@ The Stacked workflow is comprised of 8 tools for improving your productivity and
 
 ## INCLUDED LIBRARIES
 - Server Side
-	- [Express](http://expressjs.com/)
-	- [Grunt](http://gruntjs.com/mo)
-	- [Mocha](http://visionmedia.github.io/mocha/)
-	- [r.js](http://requirejs.org/docs/optimization.html)
-	- [Nodemon](https://github.com/ChrisWren/grunt-nodemon)
+   - [Express](http://expressjs.com/)
+   - [Grunt](http://gruntjs.com/mo)
+   - [Mocha](http://visionmedia.github.io/mocha/)
+   - [r.js](http://requirejs.org/docs/optimization.html)
+   - [Nodemon](https://github.com/ChrisWren/grunt-nodemon)
+   - [MongoDB](http://www.mongodb.org/)
+   - [Mongoose](http://mongoosejs.com/)
+
 - Client Side
-	- [Backbone.js](http://backbonejs.org/)
-	- [Lodash](http://lodash.com/)
-	- [Require.js](http://requirejs.org/)
-	- [Almond.js](https://github.com/jrburke/almond)
-	- [jQuery](http://jquery.com/)
-	- [Jasmine](http://pivotal.github.io/jasmine/)
-	- [Bootstrap 3.0](http://getbootstrap.com/)
-	- [Font-Awesome](http://fortawesome.github.io/Font-Awesome/)
+   - [Backbone.js](http://backbonejs.org/)
+   - [Lodash](http://lodash.com/)
+   - [Require.js](http://requirejs.org/)
+   - [Almond.js](https://github.com/jrburke/almond)
+   - [jQuery](http://jquery.com/)
+   - [Jasmine](http://pivotal.github.io/jasmine/)
+   - [Bootstrap 3.0](http://getbootstrap.com/)
+   - [Font-Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 ## INSTALLATION
 1. Download and install [Node.js](http://nodejs.org/#DOWNLOAD)
@@ -45,8 +103,8 @@ The Stacked workflow is comprised of 8 tools for improving your productivity and
 ## THE GENERATOR
 Generate your app.
 
-	mkdir myApp && cd $_
-	yo stacked`
+   mkdir myApp && cd $_
+   yo stacked`
 
 <img align="right"  src="http://cl0udc0ntr0l.github.io/generator-stacked/img/questions.png" alt="Prompt">
 
@@ -333,28 +391,41 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 
 ## CHANGE LOG
 
-`0.1.0` - Aug 11, 2013
-- First stable release
+`0.1.5` - Sept 5, 2013
 
-`0.1.1` - Aug 12, 2013
-- Added support for initial build mvc set path selection
-
-`0.1.2` - Aug 14, 2013
-- Fixed path bug in subgenerators
-
-`0.1.3` - Aug 15, 2013
-- Fixed path bug in init files
+- Added Support for MongoDB & Mongoose
+- Added Event Aggregator (Notifier)
+- Added Session Support
+- Fixed Font-Awesome Import
+- Fixed Bootstrap.js Include
+- Various Minor Bug Fixes
 
 `0.1.4` - Sept 1, 2013
+
 - Updated Yeoman Deps
 - Removed Model Require from View Subgenerator
 
+`0.1.3` - Aug 15, 2013
+
+- Fixed Path Bug in Init Files
+
+`0.1.2` - Aug 14, 2013
+
+- Fixed Path Bug in Subgenerators
+
+`0.1.1` - Aug 12, 2013
+
+- Added Support for Initial Build MVC Set Path Selection
+
+`0.1.0` - Aug 11, 2013
+
+- First Stable Release
+
 ## TODO
-- Automatate route creation and Require.js linking in existing router
-- Add database setup (Mongodb with Mongoose or Redis)
+- Automatate route creation and Require.js Includes in Existing Router
+- Add Support for SASS
 - Live Reload
 
 ## LICENSE
 Copyright (c) 2013 Randy Lebeau
 Licensed under the [MIT license](https://github.com/cl0udc0ntr0l/generator-stacked/blob/master/LICENSE-MIT).
-

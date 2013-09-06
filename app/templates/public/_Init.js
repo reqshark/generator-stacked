@@ -30,7 +30,7 @@ require.config({
 
       // Application Folders
       // ===================
-      
+
       "collections": "app/collections",
 
       "models": "app/models",
@@ -39,7 +39,9 @@ require.config({
 
       "templates": "app/templates",
 
-      "views": "app/views"
+      "views": "app/views",
+
+      "events": "app/events"
 
   },
 
@@ -68,7 +70,7 @@ require.config({
 });
 
 // Includes Desktop Specific JavaScript files here (or inside of your Desktop router)
-require(["jquery", "backbone", "routers/Router", "backbone.validateAll"],
+require(["jquery", "backbone", "routers/Router", "bootstrap", "backbone.validateAll"],
 
   function($, Backbone, Router) {
 

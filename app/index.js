@@ -13,11 +13,19 @@ var StackedGenerator = module.exports = function StackedGenerator(args, options,
       this.log.write('    > grunt init\n\n');
       this.log.write("Then install Mocha globally (if you haven't already)\n\n");
       this.log.write('    > npm install -g mocha\n\n');
+      if(this.mongo) {
+        this.log.write("Enter the IP address and Database name for your MongoDB install in...\n\n");
+        this.log.write("     'server/config/config.js'\n\n");
+      }
       this.log.write("Then you're done! Start up your server\n\n");
       this.log.write("    > grunt server\n\n");
     } else {
       this.log.write('\n\n\nYou are almost ready to start building your app. First you have to initialize your build...\n\n');
       this.log.write('    > grunt init\n\n');
+      if(this.mongo) {
+        this.log.write("Enter the IP address and Database name for your MongoDB install in...\n\n");
+        this.log.write("     'server/config/config.js'\n\n");
+      }
       this.log.write("Then you're done! Start up your server\n\n");
       this.log.write("    > grunt server\n\n");
     }
@@ -61,6 +69,11 @@ var prompts = [{
   default: ''
 }, {
   type: 'confirm',
+  name: 'mongo',
+  message: 'Do you want to use MongoDB and Mongoose?',
+  default: true
+}, {
+  type: 'confirm',
   name: 'less',
   message: 'Do you want to use LESS?',
   default: true
@@ -80,6 +93,7 @@ this.prompt(prompts, function(props) {
   this.path = props.path;
   this.less = props.less;
   this.mocha = props.mocha;
+  this.mongo = props.mongo;
 
   if (this.path !== '') {
     this.path = this.path.replace(/\/?$/, '/');
@@ -92,8 +106,11 @@ this.prompt(prompts, function(props) {
 
 StackedGenerator.prototype.app = function app() {
 
-// Public Root
+// PUBLIC ROOT
 this.mkdir('public');
+
+// FONTS
+this.mkdir('public/font');
 
 // CSS
 this.mkdir('public/css');
@@ -120,15 +137,19 @@ this.mkdir('public/js/app/models');
 this.mkdir('public/js/app/routers');
 this.mkdir('public/js/app/templates');
 this.mkdir('public/js/app/views');
+this.mkdir('public/js/app/events');
 
 // TESTS
 this.mkdir('public/js/tests');
 this.mkdir('public/js/tests/config');
 this.mkdir('public/js/tests/specs');
 
-// Server
+// SERVER
 this.mkdir('server');
 this.mkdir('server/config');
+if(this.mongo) {
+  this.mkdir('server/schemas');
+}
 
 // TL-FILES
 this.copy('_package.json', 'package.json');
@@ -150,6 +171,9 @@ StackedGenerator.prototype.projectfiles = function projectfiles() {
 this.copy('server/_server.js', 'server/server.js');
 this.copy('server/_API.js', 'server/API.js');
 this.copy('server/_config.js', 'server/config/config.js');
+if(this.mongo) {
+  this.copy('server/_schema.js', 'server/schemas/schema.js');
+}
 
 // App
 this.template('public/_Collection.js', 'public/js/app/collections/' + this.path + this.initName + 'Collection.js');
@@ -157,6 +181,7 @@ this.template('public/_Model.js', 'public/js/app/models/' + this.path + this.ini
 this.template('public/_View.js', 'public/js/app/views/' + this.path + this.initName + 'View.js');
 this.template('public/_Template.html', 'public/js/app/templates/' + this.path + this.initName + '.html');
 this.template('public/_Router.js', 'public/js/app/routers/Router.js');
+this.template('public/_Notifier.js', 'public/js/app/events/Notifier.js');
 this.copy('public/_Init.js', 'public/js/app/config/Init.js');
 
 // CSS

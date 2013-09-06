@@ -5,9 +5,27 @@ var Config =  global.Config = require('./config/config.js').config;
     express = require("express"),
     http =    require("http"),
     port =    ( process.env.PORT || Config.listenPort ),
-    server =  module.exports = express(),
+    server =  module.exports = express(),<% if(mongo) { %>
+    mongoose =     require('mongoose'),<% } %>
     API =     require('./API');
+<% if(mongo){ %>
+// DATABASE CONFIGURATION
+// ======================
 
+// Connect to Database
+mongoose.connect('mongodb://' + Config.database.IP + ':' +Config.database.port + '/' + Config.database.name);
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'DB connection error:'));
+db.once('open', function callback () {
+  console.log('Connected to DB');
+});
+
+// DATABASE SCHEMAS
+// ================
+
+var schema = require('./schemas/schema');
+<% } %>
 // SERVER CONFIGURATION
 // ====================
 
@@ -23,7 +41,11 @@ server.configure(function() {
 
   }));
 
-  server.use(express.bodyParser())
+  server.use(express.bodyParser());
+
+  server.use(express.cookieParser());
+
+  server.use(express.session({ secret: Config.sessionSecret }));
 
   server.use(server.router);
 
@@ -32,7 +54,7 @@ server.configure(function() {
 // API
 // ===
 
-API.api(server);
+API.api(server<% if(mongo){ %>, schema<% }%>);
 
 // Start Node.js Server
 http.createServer(server).listen(port);

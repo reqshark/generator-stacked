@@ -29,7 +29,8 @@
     "grunt-contrib-jshint": "~0.3.0",
     "grunt-shell": "~0.3.1",<% if (less) { %>
     "grunt-contrib-less": "~0.6.4",<% } %>
-    "grunt-mocha-test": "~0.6.2",
+    "grunt-mocha-test": "~0.6.2",<% if (mongo) { %>
+    "mongoose": "~3.6.19",<% } %>
     "superagent": "~0.15.4",
     "expect.js": "~0.2.0",
     "uglify-js": "~2.2.5"

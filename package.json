@@ -1,6 +1,6 @@
 {
   "name": "generator-stacked",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A Backbone.js Require.js test driven workflow.",
   "keywords": [
     "yeoman-generator",
