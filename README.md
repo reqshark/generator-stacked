@@ -387,7 +387,7 @@ This file contains all of your Jasmine unit tests.  Only seven tests are provide
 The entire file is wrapped in an AMD define method, with all external module (file) dependencies listed.  The Jasmine tests should be self explanatory (BDD tests are supposed to describe an app's functionality and make sense to non-techy folk as well), but if you have any questions, just file an issue and I'll respond as quickly as I can.
 
 ## DEMONSTRATIONS AND DOCUMENTATIONS
-If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate) in action, you can head over to [cl0udc0ntr0l.github.io/generator-stacked] To watch my screen cast showing the power of yeoman and Greg's screencast demonstrating [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate). I have also included quick links to the documentation for all the libraries included in Stacked.
+If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate) in action, you can head over to [the projects site](cl0udc0ntr0l.github.io/generator-stacked) To watch my screen cast showing the power of yeoman and Greg's screencast demonstrating [Backbone-Require-Boilerplate](https://github.com/BoilerplateMVC/Backbone-Require-Boilerplate). I have also included quick links to the documentation for all the libraries included in Stacked.
 
 ## CHANGE LOG
 
@@ -429,3 +429,4 @@ If you want to see Stacked and [Backbone-Require-Boilerplate](https://github.com
 ## LICENSE
 Copyright (c) 2013 Randy Lebeau
 Licensed under the [MIT license](https://github.com/cl0udc0ntr0l/generator-stacked/blob/master/LICENSE-MIT).
+
