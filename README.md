@@ -20,7 +20,7 @@ The yo man now asks you if you want to use MongoDB and Mongoose in your app. He 
 
 ##### Example
 
-> You will have to install mongoDB if you dont have it installed already. [this is how you do it,](http://docs.mongodb.org/manual/installation/)
+> You will have to install mongoDB if you dont have it installed already. [This is how you do it](http://docs.mongodb.org/manual/installation/).
 
 > Once you are done with that you have to point your config file `server/config/config.js` at your mongoDB install.
 
