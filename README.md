@@ -23,7 +23,8 @@ The yo man now asks you if you want to use MongoDB and Mongoose in your app. He 
 > You will have to install mongoDB if you dont have it installed already. [this is how you do it,](http://docs.mongodb.org/manual/installation/)
 
 > Once you are done with that you have to point your config file `server/config/config.js` at your mongoDB install.
-
+   
+   ```javascript
    exports.config = {
       listenPort: "1337",
       sessionSecret: "keyboard-cat", // You should change this while you are here
@@ -33,6 +34,7 @@ The yo man now asks you if you want to use MongoDB and Mongoose in your app. He 
          port: "27017"    // 27017 is the default port.  Only change this if you specified a different port for your mongoDB install.
       }
    };
+   ```
 
 > That's it! You can now create schemas and persist your data. A schema generator is coming soon.
 
@@ -44,30 +46,40 @@ When you create a new app, Stacked will create an event aggregator called Notifi
 
 >Include Notifier with require.js
 
+   ```javascript
    define(["jquery", "backbone", "events/Notifier"],
 
-    function($, Backbone, Notifier){ ...
+      function($, Backbone, Notifier){ ...
+   ```
 
 > Send the message
-
+   
+   ```javascript
    Notifier.trigger('myChanel.myMessage', [optional, params]);
-
+   ```
+   
 > Recieve the message somewhere else
 
+   ```javascript
    Notifier.on('myChannel.myMessage', function(optional, params){
       ...
    });
+   ```
 
 > Or even better! In your initialize method:
-
-   Notifier.on('myChannel.myMessage, this.myFunction, this);
-
+   
+   ```javascript
+   Notifier.on('myChannel.myMessage', this.myFunction, this);
+   ```
 > and then add your own method
-
+   
+   ```javascript
    myFunction: function(optional, params) {
-      …
+      
+      // your logic here
+      
    }, // Dont forget to chain your methods!
-
+   ```
 
 ## THE WORKFLOW
 <img src="http://cl0udc0ntr0l.github.io/generator-stacked/img/toolset.png" width="100%">
