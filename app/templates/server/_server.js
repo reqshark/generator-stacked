@@ -18,7 +18,7 @@ mongoose.connect('mongodb://' + Config.database.IP + ':' +Config.database.port +
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB connection error:'));
 db.once('open', function callback () {
-  console.log('Connected to ' + Config.database.name;
+  console.log('Connected to ' + Config.database.name);
 });
 
 // DATABASE SCHEMAS
